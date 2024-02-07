@@ -6,6 +6,9 @@ from scipy.sparse import lil_matrix as lil_mat
 import random
 from ppi_diffusion.common_functions import save_dict
 
+PACKAGE_DIR = os.path.dirname(__file__)
+SYMBOL_INTERACT_FILE = os.path.join(package_dir,"symbol_interaction_lilmat.pkl")
+
 
 def strip_species(in_vect):
     return([thing.split(".")[1] for thing in in_vect])
@@ -45,14 +48,14 @@ def get_symbol_interaction_mat(in_db):
 
 
 def load_and_process_stringdb(f_name = "9606.protein.physical.links.full.v12.0.txt.gz"):
-    package_dir = os.path.dirname(__file__)
-    in_db = pd.read_csv(os.path.join(package_dir,f_name), sep=" ", compression="gzip")
+    global PACKAGE_DIR, SYMBOL_INTERACT_FILE
+    in_db = pd.read_csv(os.path.join(PACKAGE_DIR,f_name), sep=" ", compression="gzip")
     ## First two columns have the ensp ids
     for i in [0,1]:
         in_db.iloc[:,i]=strip_species(in_db.iloc[:,i])
     ## convert them to symbols
-    save_dict(get_symbol_interaction_mat(in_db), os.path.join(package_dir,"symbol_interaction_lilmat.pkl"))
-    
+    save_dict(get_symbol_interaction_mat(in_db), SYMBOL_INTERACT_FILE)
+
 
 if __name__=="__main__":
     load_and_process_stringdb()
