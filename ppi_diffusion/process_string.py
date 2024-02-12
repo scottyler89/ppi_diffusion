@@ -7,7 +7,7 @@ import random
 from ppi_diffusion.common_functions import save_dict
 
 PACKAGE_DIR = os.path.dirname(__file__)
-SYMBOL_INTERACT_FILE = os.path.join(package_dir,"symbol_interaction_lilmat.pkl")
+STRINGDB_INTERACT_FILE = os.path.join(PACKAGE_DIR,"symbol_interaction_lilmat.pkl")
 
 
 def strip_species(in_vect):
