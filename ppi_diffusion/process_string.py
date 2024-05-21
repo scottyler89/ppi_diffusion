@@ -6,7 +6,7 @@ from scipy.sparse import lil_matrix as lil_mat
 import random
 from ppi_diffusion.common_functions import save_dict
 
-PACKAGE_DIR = os.path.dirname(__file__)
+PACKAGE_DIR = os.path.dirname(os.path.realpath(__file__))
 STRINGDB_INTERACT_FILE = os.path.join(PACKAGE_DIR,"symbol_interaction_lilmat.pkl")
 
 

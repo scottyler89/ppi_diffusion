@@ -12,7 +12,7 @@ with open("README.md", "r") as fh:
 with open("requirements.txt", "r") as fh:
     install_requires = fh.read()
 
-#script_list = ["anticor_features/anticor_features.py", "anticor_features/anticor_stats.py"]
+
 script_list=[]
 
 setuptools.setup(
@@ -24,6 +24,9 @@ setuptools.setup(
      long_description_content_type="text/markdown",
      long_description=long_description,
      install_requires = install_requires,
+     package_data={
+         'ppi_diffusion': ['symbol_interaction_lilmat.pkl']
+     },
      url="https://github.com/scottyler89/ppi_diffusion",
      packages=setuptools.find_packages(),
      classifiers=[

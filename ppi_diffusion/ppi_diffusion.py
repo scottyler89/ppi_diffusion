@@ -217,7 +217,7 @@ class diffuser(object):
 
 
 def make_stringdb_diffuser():
-    symbols, interactions = read_dict('C:\\Users\\styler\\bin\\ppi_diffusion\\ppi_diffusion\\symbol_interaction_lilmat.pkl')
+    symbols, interactions = read_dict(STRINGDB_INTERACT_FILE)
     return(diffuser(symbols, interactions))
 
 
